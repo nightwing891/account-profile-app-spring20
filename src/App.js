@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
+import Navbar from './components/shared/Navbar';
+import Profile from './components/account/Profile';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Navbar />
+    <Container>
+      <Switch>
+        {/* <Route exact path='/' component={Home} />
+        <Route exact path='/' render={() => <Home /> } /> */}
+        <Route exact path='/' render={() => <h1>Home</h1>} />
+        <Route exact path='/profile' component={Profile} />
+        <Route render={() => <h1>404 page</h1>} />
+      </Switch>
+    </Container>
+  </>
+)
 
 export default App;
